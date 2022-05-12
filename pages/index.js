@@ -8,8 +8,6 @@ export default function HomePage() {
 return (<>
     <Layout>
         <Home/>
-        <MainFeaturedPost/>
-        <FeaturedPost/>
     </Layout>
     
     </>

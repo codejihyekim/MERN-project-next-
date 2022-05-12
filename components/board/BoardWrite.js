@@ -13,46 +13,35 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Head from 'next/head';
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import Card from '@mui/material/Card';
 
 const theme = createTheme();
 
-export function BoardRegister({onChange, onSubmit}) {
+export function BoardWrite({onChange, onSubmit}) {
     
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" >
                 <CssBaseline/>
                 <Box
                     sx={{
                         marginTop: 8,
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'center'
+                        alignItems: 'center',
                     }}>
                     
                     <Typography component="h1" variant="h5">
-                        게시판 등록
+                       tarvel review
                     </Typography>
                     <Box
                         component="form"
                         onSubmit={onSubmit}
                         noValidate="noValidate"
                         sx={{
-                            mt: 1
+                            '& .MuiTextField-root': { m: 1, width: '80ch' }
                         }}>
+                        <div>
                         <TextField
                             margin="normal"
                             required
@@ -73,24 +62,31 @@ export function BoardRegister({onChange, onSubmit}) {
                             id="title"
                             autoComplete="title"
                             onChange={onChange}/>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="content"
+                            label="내용"
+                            type="content"
+                            id="content"
+                            multiline
+                            rows={20}
+                            autoComplete="content"
+                            onChange={onChange}/>
                         <Button
                             type="submit"
                             fullWidth 
                             variant="contained"
                             sx={{
-                                mt: 3,
-                                mb: 2
+                                mt: 2,
+                                mb: 5
                             }}>
                             등록
                         </Button>
-                        
+                        </div>
                     </Box>
                 </Box>
-                <Copyright
-                    sx={{
-                        mt: 8,
-                        mb: 4
-                    }}/>
             </Container>
         </ThemeProvider>
     );

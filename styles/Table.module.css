@@ -3,6 +3,7 @@
     font-size: 15px;
     width: 900px;
     border: 1px solid black;
+    margin: auto
 }
 .table thead th {
     background-color: white;

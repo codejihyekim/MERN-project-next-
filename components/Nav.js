@@ -19,8 +19,8 @@ import Link from '@mui/material/Link';
 
 
 const sections = [
-    { title: '글쓰기', url: "/board/register" },
-    { title: '목록', url: '#' },
+    { title: '글쓰기', url: "/board/boardWrite" },
+    { title: '목록', url: "/board/boardList" },
     { title: '수정', url: '#' },
     { title: '삭제', url: '#' },
   ];
@@ -29,10 +29,11 @@ export function Nav() {
     
     return (
       <>
+      <Container maxWidth="lg">
       <Toolbar
       component="nav"
       variant="dense"
-      sx={{ justifyContent: 'space-between', overflowX: 'auto'}}
+      sx={{justifyContent: 'space-between', overflowX: 'auto'}}
     >
       {sections.map((section) => (
         <Link
@@ -41,12 +42,13 @@ export function Nav() {
           key={section.title}
           variant="body2"
           href={section.url}
-          sx={{ p: -10, flexShrink: 0 }}
+          sx={{ p: 1, flexShrink: 0 }}
         >
           {section.title}
         </Link>
       ))}
     </Toolbar>
+    </Container>
       </>  
     );
 }

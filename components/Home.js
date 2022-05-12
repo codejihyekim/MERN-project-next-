@@ -2,43 +2,54 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Footer from './Footer';
 
-const featuredPosts = [
+export function Home() {
+  const mainFeaturedPost = {
+    title: 'Title of a longer featured blog post',
+    description:
+      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    image: 'https://source.unsplash.com/1600x900/?trip',
+    imageText: 'main image description',
+    linkText: 'Continue reading…',
+  };
+  
+  const featuredPosts = [
     {
-      title: 'Featured post',
+      title: '맛집 Post',
       date: 'Nov 12',
       description:
         'This is a wider card with supporting text below as a natural lead-in to additional content.',
-      image: 'https://source.unsplash.com/random',
+      image: 'https://source.unsplash.com/1600x900/?food',
       imageLabel: 'Image Text',
     },
     {
-      title: 'Post title',
+      title: '관광지 Post',
       date: 'Nov 11',
       description:
         'This is a wider card with supporting text below as a natural lead-in to additional content.',
-      image: 'https://source.unsplash.com/random',
+      image: 'https://source.unsplash.com/1600x900/?Tourist destination',
       imageLabel: 'Image Text',
     },
   ];
+  
+  const theme = createTheme();
 
-const theme = createTheme();
-
-export function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-       
+          <MainFeaturedPost post={mainFeaturedPost} />
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid>
+          <Grid container spacing={5} sx={{ mt: 3 }}>
+          </Grid>
         </main>
       </Container>
     </ThemeProvider>

@@ -6,27 +6,27 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 
-export function MainFeaturedPost() {
-  
+export default function MainFeaturedPost(props) {
+  const { post } = props;
+
   return (
     <Paper
       sx={{
         position: 'relative',
         backgroundColor: 'grey.800',
         color: '#fff',
-        mb: 10,
-        width: 1100,
+        mb: 4,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url('https://source.unsplash.com/1600x1200/?trip')`,
+        backgroundImage: `url(${post.image})`,
       }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={'https://source.unsplash.com/1600x1200/?trip'} alt={'main image description'} />}
+      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
       <Box
         sx={{
-          position: 'center',
+          position: 'absolute',
           top: 0,
           bottom: 0,
           right: 0,
@@ -39,18 +39,18 @@ export function MainFeaturedPost() {
           <Box
             sx={{
               position: 'relative',
-              p: { xs: 1, md: 3 },
-              pr: { md: 5 },
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              Title of a longer featured blog post
+              {post.title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-            Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.
+              {post.description}
             </Typography>
             <Link variant="subtitle1" href="#">
-              Continue reading…
+              {post.linkText}
             </Link>
           </Box>
         </Grid>
