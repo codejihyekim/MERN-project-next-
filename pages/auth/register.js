@@ -13,11 +13,13 @@ const RegisterPage = () => {
         const{name, value} = e.target;
         setUser({...user,[name]: value})
     }
+
     const onSubmit = e => {
         e.preventDefault()
         alert('회원가입정보: '+JSON.stringify(user))
         dispatch(registerRequest(user))
     }
+    
   return (
     <Register onChange={onChange} onSubmit={onSubmit}  />
   );

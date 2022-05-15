@@ -35,7 +35,9 @@ function* boardWrite(action){
         yield put({type: WRITE_FAILURE, payload: error.message})
     }
 }
-const boardWriteAPI = payload => axios.post(`${SERVER}/board/write`, payload,{headers})
+
+const boardWriteAPI = payload => axios.post(
+    `${SERVER}/board/write`, payload,{headers})
 
 const boardCreate = handleActions({
     [HYDRATE]: (state, action) => 
